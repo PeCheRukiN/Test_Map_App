@@ -4,18 +4,33 @@
 2. Добавить в проект следующие фреймворки и библиотеки:
 
 AudioToolbox
+
 OpenAL
+
 AVFoundation
+
 CoreData
+
 CoreLocation
+
 CoreTelephony
+
 libsqlite3.dylib
+
 libstdc++
+
 libxml2.dylib
+
 libYandexMapKit
+
 libz.dylib
+
 MessageUI
+
 OpenGLES
+
 QuartzCore
+
 Security
+
 SystemConfiguration
