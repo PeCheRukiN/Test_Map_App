@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Test_Map_App_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kuB-rG-ucr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iiG-9e-GGP" customClass="YMKMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mev-F1-Y0y">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EuJ-F4-fwj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AdressCell" id="AXJ-JD-LHx" customClass="AdressCell" customModule="Test_Map_App_ios" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AXJ-JD-LHx" id="i7J-Ze-3jV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wO-eB-mL9">
+                                                    <rect key="frame" x="15" y="13" width="345" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1wO-eB-mL9" firstAttribute="leading" secondItem="i7J-Ze-3jV" secondAttribute="leading" constant="15" id="cnK-CE-Ujp"/>
+                                                <constraint firstItem="1wO-eB-mL9" firstAttribute="centerY" secondItem="i7J-Ze-3jV" secondAttribute="centerY" id="gR8-TA-nwY"/>
+                                                <constraint firstAttribute="trailing" secondItem="1wO-eB-mL9" secondAttribute="trailing" constant="15" id="tHD-nF-Umy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="adressNameLabel" destination="1wO-eB-mL9" id="C5z-9k-7D6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iiG-9e-GGP" firstAttribute="top" secondItem="kuB-rG-ucr" secondAttribute="bottom" id="3cb-jn-W8h"/>
+                            <constraint firstItem="iiG-9e-GGP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BGg-gC-DZH"/>
+                            <constraint firstItem="kuB-rG-ucr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IXL-hi-53C"/>
+                            <constraint firstAttribute="trailing" secondItem="iiG-9e-GGP" secondAttribute="trailing" id="Ly4-oQ-msg"/>
+                            <constraint firstAttribute="trailing" secondItem="kuB-rG-ucr" secondAttribute="trailing" id="Ny7-If-qZW"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iiG-9e-GGP" secondAttribute="bottom" id="nOy-jp-rk2"/>
+                            <constraint firstItem="kuB-rG-ucr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pUl-SU-JcJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="blurView" destination="Mev-F1-Y0y" id="xBW-cQ-hsM"/>
+                        <outlet property="mapView" destination="iiG-9e-GGP" id="OKl-jF-3se"/>
+                        <outlet property="searchBar" destination="kuB-rG-ucr" id="d8z-nH-wRc"/>
+                        <outlet property="tableView" destination="EuJ-F4-fwj" id="Wal-HW-rjr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64.799999999999997" y="109.29535232383809"/>
+        </scene>
+    </scenes>
+</document>
