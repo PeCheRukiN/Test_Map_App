@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,29 +21,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kuB-rG-ucr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iiG-9e-GGP" customClass="YMKMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mev-F1-Y0y">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mev-F1-Y0y">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EuJ-F4-fwj">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EuJ-F4-fwj">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AdressCell" id="AXJ-JD-LHx" customClass="AdressCell" customModule="Test_Map_App_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AXJ-JD-LHx" id="i7J-Ze-3jV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wO-eB-mL9">
@@ -65,16 +59,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kuB-rG-ucr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EuJ-F4-fwj" secondAttribute="trailing" id="1AD-Zg-cCE"/>
                             <constraint firstItem="iiG-9e-GGP" firstAttribute="top" secondItem="kuB-rG-ucr" secondAttribute="bottom" id="3cb-jn-W8h"/>
                             <constraint firstItem="iiG-9e-GGP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BGg-gC-DZH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mev-F1-Y0y" secondAttribute="bottom" id="Drc-Xy-eDh"/>
                             <constraint firstItem="kuB-rG-ucr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IXL-hi-53C"/>
                             <constraint firstAttribute="trailing" secondItem="iiG-9e-GGP" secondAttribute="trailing" id="Ly4-oQ-msg"/>
                             <constraint firstAttribute="trailing" secondItem="kuB-rG-ucr" secondAttribute="trailing" id="Ny7-If-qZW"/>
+                            <constraint firstItem="EuJ-F4-fwj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="URd-Sg-CkY"/>
+                            <constraint firstItem="EuJ-F4-fwj" firstAttribute="top" secondItem="kuB-rG-ucr" secondAttribute="bottom" id="YrH-lc-khA"/>
+                            <constraint firstAttribute="trailing" secondItem="Mev-F1-Y0y" secondAttribute="trailing" id="auZ-D8-feD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EuJ-F4-fwj" secondAttribute="bottom" id="cVq-sZ-hwI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iiG-9e-GGP" secondAttribute="bottom" id="nOy-jp-rk2"/>
                             <constraint firstItem="kuB-rG-ucr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pUl-SU-JcJ"/>
+                            <constraint firstItem="Mev-F1-Y0y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sMp-Ku-5qd"/>
+                            <constraint firstItem="Mev-F1-Y0y" firstAttribute="top" secondItem="kuB-rG-ucr" secondAttribute="bottom" id="sh9-EW-6Ln"/>
                         </constraints>
                     </view>
                     <connections>
