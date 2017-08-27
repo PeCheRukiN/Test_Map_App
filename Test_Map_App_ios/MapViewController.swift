@@ -15,11 +15,7 @@ class MapViewController: UIViewController, YMKMapImageBuilderDelegate {
     @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-<<<<<<< HEAD
     var reusablePoint: MapPointAnnotation?
-=======
-    var reusablePoint: MapPointAnnotation?    
->>>>>>> 9ee662fcdfcbea3cf38cbbdd1eb3704b4ab06ae1
     var adressesDataArray: [AdressData] = []
     
     override func viewDidLoad() {
@@ -30,20 +26,13 @@ class MapViewController: UIViewController, YMKMapImageBuilderDelegate {
         setupBlurView()
         setupTableView()
     }
-<<<<<<< HEAD
     
-=======
 
->>>>>>> 9ee662fcdfcbea3cf38cbbdd1eb3704b4ab06ae1
     func setupMapView() {
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         self.mapView.showTraffic = false
-<<<<<<< HEAD
         self.mapView.setCenter(YMKMapCoordinateMake(55.764231, 37.561723), atZoomLevel: 13, animated: true)
-=======
-        self.mapView.setCenter(YMKMapCoordinateMake(55.764231, 37.561723), atZoomLevel: 13, animated: false)
->>>>>>> 9ee662fcdfcbea3cf38cbbdd1eb3704b4ab06ae1
     }
     
     func setupSearchBar() {
