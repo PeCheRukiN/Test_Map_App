@@ -14,7 +14,6 @@ class AdressCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         adressNameLabel.text = ""
     }
 }
