@@ -15,9 +15,7 @@ class MapViewController: UIViewController, YMKMapImageBuilderDelegate {
     @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    var reusablePoint: MapPointAnnotation?
-    var mapImageBuilder: YMKMapImageBuilder?
-    
+    var reusablePoint: MapPointAnnotation?    
     var adressesDataArray: [AdressData] = []
     
     override func viewDidLoad() {
@@ -27,14 +25,13 @@ class MapViewController: UIViewController, YMKMapImageBuilderDelegate {
         setupMapView()
         setupBlurView()
         setupTableView()
-        
-            }
+    }
 
     func setupMapView() {
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         self.mapView.showTraffic = false
-        self.mapView.setCenter(self.mapView.userLocation.coordinate(), atZoomLevel: 13, animated: false)
+        self.mapView.setCenter(YMKMapCoordinateMake(55.764231, 37.561723), atZoomLevel: 13, animated: false)
     }
     
     func setupSearchBar() {
@@ -91,7 +88,6 @@ class MapViewController: UIViewController, YMKMapImageBuilderDelegate {
 extension MapViewController: YMKMapViewDelegate {
     
     func mapView(_ mapView: YMKMapView!, gotSingleTapAt coordinate: YMKMapCoordinate) {
-        
         let longitude = coordinate.longitude
         let latitude = coordinate.latitude
         
@@ -107,7 +103,6 @@ extension MapViewController: YMKMapViewDelegate {
     }
     
     func mapView(_ view: YMKMapView!, calloutViewFor annotation: YMKAnnotation!) -> YMKCalloutView! {
-        
         let identifier = "pointCallout"
         let callout: YMKDefaultCalloutView = mapView.dequeueReusableCalloutView(withIdentifier: identifier) as? YMKDefaultCalloutView ?? YMKDefaultCalloutView(reuseIdentifier: identifier)
         callout.annotation = annotation
@@ -116,7 +111,6 @@ extension MapViewController: YMKMapViewDelegate {
     }
     
     func mapView(_ mapView: YMKMapView!, viewFor annotation: YMKAnnotation!) -> YMKAnnotationView! {
-        
         let identifier = "pointAnnotation"
         let view: YMKPinAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? YMKPinAnnotationView ?? YMKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
         view.canShowCallout = true
