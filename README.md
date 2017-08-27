@@ -1,7 +1,8 @@
 # Test_Map_App
 Для запуска необходимо:
 1. Выполнить установку CocoaPods;
-2. Добавить в проект следующие фреймворки и библиотеки:
+2. Импортировать #import <UIKit/UIKit.h> в Pods/Pods/YandexMapKit/YMKAnnotationImage.h 
+3. Добавить в проект следующие фреймворки и библиотеки:
 
 AudioToolbox
 
