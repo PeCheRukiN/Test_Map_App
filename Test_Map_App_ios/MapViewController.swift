@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController, YMKMapImageBuilderDelegate {
+class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: YMKMapView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -26,7 +26,6 @@ class MapViewController: UIViewController, YMKMapImageBuilderDelegate {
         setupBlurView()
         setupTableView()
     }
-    
 
     func setupMapView() {
         self.mapView.delegate = self
@@ -61,27 +60,27 @@ class MapViewController: UIViewController, YMKMapImageBuilderDelegate {
         }
     }
     
-    func setSearchTo(_ value: Bool) {
-        if value {
-            self.searchBar.becomeFirstResponder()
-            self.searchBar.setShowsCancelButton(true, animated: true)
-            self.blurView.isHidden = false
-            UIView.animate(withDuration: 0.5) {
-                self.blurView.alpha = 0.4
-                self.tableView.isHidden = false
-            }
-        } else {
-            self.searchBar.text = ""
-            self.searchBar.resignFirstResponder()
-            self.searchBar.setShowsCancelButton(false, animated: true)
-            UIView.animate(withDuration: 0.5, animations: {
-                self.blurView.alpha = 0
-            }) { (completion) in
-                self.blurView.isHidden = true
-                self.tableView.isHidden = true
-                self.adressesDataArray = []
-                self.tableView.reloadData()
-            }
+    func startSearch() {
+        self.searchBar.becomeFirstResponder()
+        self.searchBar.setShowsCancelButton(true, animated: true)
+        self.blurView.isHidden = false
+        UIView.animate(withDuration: 0.5) {
+            self.blurView.alpha = 0.4
+            self.tableView.isHidden = false
+        }
+    }
+    
+    func endSearch() {
+        self.searchBar.text = ""
+        self.searchBar.resignFirstResponder()
+        self.searchBar.setShowsCancelButton(false, animated: true)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.blurView.alpha = 0
+        }) { (completion) in
+            self.blurView.isHidden = true
+            self.tableView.isHidden = true
+            self.adressesDataArray = []
+            self.tableView.reloadData()
         }
     }
 }
@@ -122,7 +121,7 @@ extension MapViewController: YMKMapViewDelegate {
 
 extension MapViewController: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        setSearchTo(true)
+        startSearch()
         
         let latitude = self.mapView.userLocation.coordinate().latitude
         let longitude = self.mapView.userLocation.coordinate().longitude
@@ -141,7 +140,7 @@ extension MapViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        setSearchTo(false)
+        endSearch()
     }
 }
 
@@ -164,7 +163,7 @@ extension MapViewController: UITableViewDelegate, UITableViewDataSource {
         self.configureReusablePoint()
         self.reusablePoint?.coordinate = YMKMapCoordinateMake(latitude, longitude)
         self.reusablePoint?.title = adressName
-        self.setSearchTo(false)
+        self.endSearch()
         self.mapView.scroll(to: self.reusablePoint, animated: true)
     }
 }
